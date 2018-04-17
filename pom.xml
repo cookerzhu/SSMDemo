@@ -15,18 +15,10 @@
         <version>1.4.2.RELEASE</version>
     </parent>
 
-    <repositories>
-        <repository>
-            <id>ice</id>
-            <name>ice-3.4.1</name>
-            <url>https://repo.zeroc.com/nexus/content/repositories/releases/</url>
-        </repository>
-    </repositories>
-
     <properties>
-        <java-version>1.7</java-version>
+        <java-version>1.8</java-version>
         <encoding>UTF-8</encoding>
-        <start-class>com.hhly.partnerCenter.Application</start-class>
+        <start-class>com.ssmdemo.Application</start-class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <!--<slice.home.dir>C:\Program Files (x86)\ZeroC\Ice-3.4.1</slice.home.dir>-->
@@ -106,24 +98,6 @@
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.8</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.zeroc</groupId>
-            <artifactId>ice</artifactId>
-            <version>3.4.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.zeroc</groupId>
-            <artifactId>ant-ice</artifactId>
-            <version>4.0.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.ant</groupId>
-            <artifactId>ant</artifactId>
-            <version>1.8.2</version>
-        </dependency>
     </dependencies>
 
     <build>
@@ -140,35 +114,6 @@
                 <configuration>
                     <warName>partnerCenter</warName>
                 </configuration>
-            </plugin>
-
-            <plugin>
-                <!--编译ice的slice文件生成java文件-->
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <phase>generate-sources</phase>
-                        <configuration>
-                            <target name="slice2java">
-                                <taskdef name="slice2java" classname="Slice2JavaTask" classpathref="maven.plugin.classpath" />
-                                <slice2java outputdir="src/main/java">
-                                    <fileset dir="src/main/resources/slice" includes="*.ice" />
-                                </slice2java>
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.zeroc</groupId>
-                        <artifactId>ant-ice</artifactId>
-                        <version>4.0.0</version>
-                    </dependency>
-                </dependencies>
             </plugin>
 
             <plugin>

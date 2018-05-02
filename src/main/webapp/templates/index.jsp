@@ -12,7 +12,7 @@
 <body>
 <div>
     <div>
-        <div class="startree">${account}</div>
+        <div class="startree">Hello World!</div>
     </div>
 </div>
 </body>

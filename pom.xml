@@ -9,6 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
+    <properties>
+    </properties>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -58,6 +61,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -66,9 +70,15 @@
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>5.0.0.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
-
+    <!-- mvn:spring-boot:run-->
     <build>
         <plugins>
             <plugin>

@@ -1,6 +1,7 @@
 package com.ssmdemo.aop;
 
 import com.ssmdemo.annotation.ExampleAnnotation;
+import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -13,14 +14,14 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
+@Log4j2
 public class ExampleAspect {
 
     @Around("@annotation(exampleAnnotation)") //@annotation注解里面的值必须和下面方法里的参数对应
     public Object check(ProceedingJoinPoint joinPoint, ExampleAnnotation exampleAnnotation) throws Throwable{
         String value = exampleAnnotation.value();
         String[] conditions = exampleAnnotation.conditions();
-        System.out.println(value);
-        System.out.println(conditions.toString());
+        log.info(value,conditions.toString());
         return joinPoint.proceed();
     }
 

@@ -1,6 +1,5 @@
-package com.ssmdemo.aop;
+package com.ssmdemo.Exception;
 
-import com.ssmdemo.Exception.ServerException;
 import com.ssmdemo.common.CODE;
 import com.ssmdemo.common.ResponseData;
 import lombok.extern.log4j.Log4j2;

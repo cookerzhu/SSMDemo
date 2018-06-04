@@ -1,6 +1,8 @@
 package com.ssmdemo;
 
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
+import com.ssmdemo.interceptor.PageInterceptor;
+import org.apache.ibatis.plugin.Interceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -33,6 +35,15 @@ public class Application extends SpringBootServletInitializer {
     @ConfigurationProperties(prefix = "spring.datasource.druid")
     public DataSource dataSourceOne(){
         return DruidDataSourceBuilder.create().build();
+    }
+
+    /**
+     * mybatis plugin
+     * @return
+     */
+    @Bean
+    public Interceptor getInterceptor(){
+        return new PageInterceptor();
     }
  }
 

@@ -43,4 +43,12 @@ public class ResponseData {
         this.msg = msg;
     }
 
+    @Override
+    public String toString() {
+        return "ResponseData{" +
+                "data=" + data.toString() +
+                ", code='" + code + '\'' +
+                ", msg='" + msg + '\'' +
+                '}';
+    }
 }

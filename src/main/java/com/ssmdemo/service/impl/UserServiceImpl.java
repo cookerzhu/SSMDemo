@@ -1,5 +1,6 @@
 package com.ssmdemo.service.impl;
 
+import com.ssmdemo.common.Page;
 import com.ssmdemo.mapper.UserMapper;
 import com.ssmdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper ;
 
     @Override
-    public List<Map<String, Object>> queryList() {
-        return userMapper.queryList();
+    public List<Map<String, Object>> queryList(Page page,Map<String,Object> params) {
+        return userMapper.queryList(page,"test");
     }
 }

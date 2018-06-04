@@ -2,6 +2,7 @@ package com.ssmdemo.controller;
 
 import com.ssmdemo.Exception.ServerException;
 import com.ssmdemo.common.CODE;
+import com.ssmdemo.common.Page;
 import com.ssmdemo.common.ResponseData;
 import com.ssmdemo.service.UserService;
 import lombok.extern.log4j.Log4j2;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -40,8 +42,8 @@ public class UserController {
     }
 
     @RequestMapping("/list")
-    public Object list(){
-        List<Map<String, Object>> mapList = userService.queryList();
+    public Object list(Page page){
+        List<Map<String, Object>> mapList = userService.queryList(page,new HashMap<String,Object>(){});
         return new ResponseData(CODE.Success,mapList);
     }
 }

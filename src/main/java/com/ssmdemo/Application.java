@@ -38,7 +38,7 @@ public class Application extends SpringBootServletInitializer {
     }
 
     /**
-     * mybatis plugin
+     * mybatis plugins:在application.properties配置文件中配置mybatis.configuration.interceptors无效
      * @return
      */
     @Bean

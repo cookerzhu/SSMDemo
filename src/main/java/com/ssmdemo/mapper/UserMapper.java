@@ -12,5 +12,5 @@ import java.util.Map;
  */
 @Mapper
 public interface UserMapper {
-    List<Map<String,Object>> queryList(@Param("page") Page page,String condition);
+    List<Map<String,Object>> queryList(Page page,String condition);
 }

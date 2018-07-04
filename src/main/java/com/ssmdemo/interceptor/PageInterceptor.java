@@ -35,6 +35,7 @@ public class PageInterceptor implements Interceptor{
             return invocation.proceed();
         }
 
+        //获取mapper方法的参数
         ParameterHandler parameterHandler = (ParameterHandler) metaObject.getValue("delegate.parameterHandler");
         Map<String,Object> parameterObject = (Map<String, Object>) parameterHandler.getParameterObject();
         Page page = (Page) parameterObject.get("page");

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!--http://www.mybatis.org/generator/configreference/javaModelGenerator.html-->
+<generatorConfiguration>
+    <properties resource="application.properties"/>
+
+    <context id="salaryTables" targetRuntime="MyBatis3">
+        <commentGenerator >
+            <property name="suppressAllComments" value="false"/><!-- 是否取消注释 -->
+            <property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳-->
+        </commentGenerator>
+
+        <jdbcConnection driverClass="${spring.datasource.druid.driver-class-name}"
+                        connectionURL="${spring.datasource.druid.url}"
+                        userId="${spring.datasource.druid.username}" password="${spring.datasource.druid.password}">
+        </jdbcConnection>
+        <!--生成java Object-->
+        <javaModelGenerator targetPackage="com.ssmdemo.entity" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--生成xml文件-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources/mybatis">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+
+        <!--生成mapper interface-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.ssmdemo.mapper" targetProject="src/main/java"/>
+
+        <table tableName="tio_hr_sys_emp" domainObjectName="HrSysEmp">
+            <property name="useActualColumnNames" value="true"/>
+            <generatedKey column="ID" sqlStatement="mysql" identity="true" />
+            <columnOverride column="update_time" property="updateDate" /><!--要替换的列名-->
+            <ignoreColumn column="isForeign" /><!--要忽略的列-->
+        </table>
+
+
+    </context>
+</generatorConfiguration>

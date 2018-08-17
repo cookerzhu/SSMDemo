@@ -8,7 +8,7 @@
 
     <context id="salaryTables" targetRuntime="MyBatis3">
         <commentGenerator >
-            <property name="suppressAllComments" value="false"/><!-- 是否取消注释 -->
+            <property name="suppressAllComments" value="true"/><!-- 是否取消注释 -->
             <property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳-->
         </commentGenerator>
 
@@ -36,7 +36,5 @@
             <columnOverride column="update_time" property="updateDate" /><!--要替换的列名-->
             <ignoreColumn column="isForeign" /><!--要忽略的列-->
         </table>
-
-
     </context>
 </generatorConfiguration>
